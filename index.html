@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Required meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ArduinoControl</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+    <script src="./iro.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+    <style>
+
+    </style>
+</head>
+<body>
+<div role="main" class="container-fluid">
+    <div class="row">
+        <div class="col m-1">
+            <h3 class="center">LED CONTROL</h3>
+            <p class="center">
+                <button id="b_on" type="button" class="btn btn-lg btn-success">LED ON</button>
+                <button id="b_off" type="button" class="btn btn-lg btn-danger">LED OFF</button>
+            <div class="form-group">
+                <h4 class="center">Fade: <span class="badge badge-info" id="fade_value"></span></h4>
+                <input type="range" class="custom-range" min="0" max="1000" step=250 id="fade_range"/>
+                <small id="fadeHelpBlock" clasS="form-text text-muted">
+                    Control fade Range ( 0 to 1000 ). Set to 0 for no fading.
+                </small>
+            </div>
+            </p>
+            <h3 class="center">LED STATUS</h3>
+            <p class="center">
+                <button id="b_status" type="button" class="btn btn-lg btn-success" disabled>ON</button>
+            </p>
+            <h3 class="center">LED RGB</h3>
+            <div class="row">
+                <div class="col sm-4" id="color-picker-container">
+                </div>
+                <p>
+                    <button id="rbg_led_off" type="button" class="btn btn-lg btn-danger"> RGB LED OFF</button>
+                </p>
+            </div>
+            <h3 class="center"> RGB LED STATUS</h3>
+            <p style="text-align:center">
+                <button id="b_led_rgb_status" type="button" class="btn btn-lg" disabled>RGB LED OFF</button>
+            </p>
+        </div>
+        <div class="col m-1">
+            <div class="form-group">
+                <h3 class="center">LCD TEXT</h3>
+                <label for="lcd1">Line 1</label>
+                <p><input id="lcd1" class="form-control" type="text" name="lcd1" maxlength="16"></p>
+                <label for="lcd2">Line 2</label>
+                <p><input id="lcd2" class="form-control" type="text" name="lcd2" maxlength="16"></p>
+                <p><button id="send_lcd1" type="button" class="btn btn-primary">SEND TEXT</button></p>
+            </div>
+            <h3 class="center">LCD HISTORY</h3>
+            <div id="lcdHistory" class="list-group">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="./script.js"></script>
+</body>
+</html>
